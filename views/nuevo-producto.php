@@ -35,3 +35,6 @@
     <button type="button" class="btn btn-success">registrar</button>
     </div>
 </form>
+
+<script src=" <?php echo BASE_URL;?> views/functions_producto.js"></
+script>
