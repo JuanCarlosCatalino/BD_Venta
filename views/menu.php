@@ -2,19 +2,19 @@
 <div class="collapse navbar-collapse justify-content-center" id="navbarNav" style="margin-left:200PX ;">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link " href="views/tazas.php">Tazas</a>
+            <a class="nav-link " href="<?php echo BASE_URL ?>tazas">Tazas</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="views/polos.php">Polos</a>
+            <a class="nav-link" href="<?php echo BASE_URL ?>polos">Polos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="menu.php">EGO-MUNDO</a>
+            <a class="nav-link active" href="<?php echo BASE_URL ?>menu">EGO-MUNDO</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="views/gorras.php">Gorras</a>
+            <a class="nav-link" href="<?php echo BASE_URL ?>gorras">Gorras</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="views/almohadas.php">almohadas</a>
+            <a class="nav-link" href="<?php echo BASE_URL ?>almohadas">almohadas</a>
           </li>
         </ul>
       </div>
@@ -58,38 +58,39 @@
   <div class="container-fluid" style="margin-top: 50px;">
     <div class="row " style="margin-left: 100px ;  margin-right: 100px; margin-top: 0px;">
       <!-- Categoría 1 -->
-      <div class="col-md-3 col-sm-6" style=" height: 500px;">
+      <div class="col-md-3 col-sm-6" style="height: 500px;">
+    <a href="<?php echo BASE_URL ?>tazas" style="text-decoration: none; color: inherit;">
         <div class="Categorías">
-          <img src="img/tazacat.png" alt="Categoría 1" >
-          <h5>Tazas</h5> <!-- Título en el pie -->
+            <img src="img/tazacat.png" alt="Categoría 1">
+            <h5>Tazas</h5> <!-- Título en el pie -->
         </div>
-      </div>
+    </a>
+</div><div class="col-md-3 col-sm-6" style="height: 500px;">
+    <a href="<?php echo BASE_URL ?>polos" style="text-decoration: none; color: inherit;">
+        <div class="Categorías">
+            <img src="img/polocat.jpg" alt="Categoría 1">
+            <h5>Polos</h5> <!-- Título en el pie -->
+        </div>
+    </a>
+</div><div class="col-md-3 col-sm-6" style="height: 500px;">
+    <a href="<?php echo BASE_URL ?>gorras" style="text-decoration: none; color: inherit;">
+        <div class="Categorías">
+            <img src="img/gorracat.png" alt="Categoría 1">
+            <h5>Gorras</h5> <!-- Título en el pie -->
+        </div>
+    </a>
+</div><div class="col-md-3 col-sm-6" style="height: 500px;">
+    <a href="<?php echo BASE_URL ?>almohadas" style="text-decoration: none; color: inherit;">
+        <div class="Categorías">
+            <img src="img/almocat.png" alt="Categoría 1">
+            <h5>almohadas</h5> <!-- Título en el pie -->
+        </div>
+    </a>
+</div>
+</div>
 
-      <!-- Categoría 2 -->
-      <div class="col-md-3 col-sm-6" style=" height: 500px;">
-        <div class="Categorías">
-          <img src="img/polocat.jpg" alt="Categoría 1">
-          <h5>Polos</h5> <!-- Título en el pie -->
-        </div>
-      </div>
 
-      <!-- Categoría 3 -->
-      <div class="col-md-3 col-sm-6" style=" height: 500px;">
-        <div class="Categorías">
-          <img src="img/gorracat.png" alt="Categoría 1">
-          <h5>Gorras</h5> <!-- Título en el pie -->
-        </div>
-      </div>
-
-      <!-- Categoría 4 -->
-      <div class="col-md-3 col-sm-6" style=" height: 500px;">
-        <div class="Categorías">
-          <img src="img/almocat.png" alt="Categoría 1">
-          <h5>almohadas</h5> <!-- Título en el pie -->
-        </div>
-      </div>
-    </div>
-  </div>
+    
 
   <div class="container-fluid p-0" style="margin-top: 10px;">
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
@@ -263,12 +264,17 @@
       </div>
      </div>
      <div class="buttons">
-      <button class="design-button">
-       Comprar Ahora
-      </button>
-      <button class="buy-button">
-       Ir al Carrito
-      </button>
+     <a href="<?php echo BASE_URL ?>menu">
+    <button class="design-button">
+        Comprar Ahora
+    </button>
+</a>
+
+<a href="<?php echo BASE_URL ?>carrito">
+    <button class="buy-button">
+        Ir al Carrito
+    </button>
+</a>
      </div>
     </div>
     <div class="right-section">

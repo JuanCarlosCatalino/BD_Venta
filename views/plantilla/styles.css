@@ -572,6 +572,9 @@
     text-align: center;
     overflow: hidden; /* Asegura que el pseudo-elemento no se salga del contenedor */
      font-family: fantasy; 
+     background-image: url(../../img/perfilcab.png);
+     filter: blur();
+     z-index: -1; 
   }
 
 .header::before {
