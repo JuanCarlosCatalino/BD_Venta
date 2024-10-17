@@ -27,7 +27,8 @@
     <div>
         <label for=""> imagen1: </label>
             <input type="text" class="form-control" >
-    </div><div>
+    </div>
+    <div>
         <label for=""> id_proveedor:</label>
             <input type="number" class="form-control" >
     </div>
@@ -36,5 +37,4 @@
     </div>
 </form>
 
-<script src=" <?php echo BASE_URL;?> views/functions_producto.js"></
-script>
+<script src="<?php echo BASE_URL;?>views/js/functions_productos.js"></script>
