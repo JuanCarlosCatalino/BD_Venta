@@ -10,8 +10,8 @@
         </div>
         <div class="box">
             <h2>SOBRE NOSOTROS</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, ipsa?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, ipsa?</p>
+            <p>Somos uns empresa que se dedica a materializar tus ideas </p>
+            <p>Descubre una amplia gama ded prodcutos perzonalizados</p>
         </div>
         <div class="box">
             <h2>SIGUENOS</h2>
@@ -37,7 +37,7 @@
         </div>
     </div>
     <div class="grupo-2">
-        <small>&copy; 2024 <b>SLee Dw</b> - Todos los Derechos Reservados.</small>
+        <small>&copy; 2024 <b>SLee Dw</b> - Todos los Derechos Reservados.(Juan Carlos Catalino Egoavil)</small>
     </div>
 </footer>
 

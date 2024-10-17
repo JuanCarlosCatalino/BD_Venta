@@ -60,7 +60,7 @@
       <!-- Categoría 1 -->
       <div class="col-md-3 col-sm-6" style=" height: 500px;">
         <div class="Categorías">
-          <img src="img/2bb8f1c3f5a03e3788dfba32fd56c8ae.png" alt="Categoría 1">
+          <img src="img/tazacat.png" alt="Categoría 1" >
           <h5>Tazas</h5> <!-- Título en el pie -->
         </div>
       </div>
@@ -68,7 +68,7 @@
       <!-- Categoría 2 -->
       <div class="col-md-3 col-sm-6" style=" height: 500px;">
         <div class="Categorías">
-          <img src="img/2bb8f1c3f5a03e3788dfba32fd56c8ae.png" alt="Categoría 1">
+          <img src="img/polocat.jpg" alt="Categoría 1">
           <h5>Polos</h5> <!-- Título en el pie -->
         </div>
       </div>
@@ -76,7 +76,7 @@
       <!-- Categoría 3 -->
       <div class="col-md-3 col-sm-6" style=" height: 500px;">
         <div class="Categorías">
-          <img src="img/2bb8f1c3f5a03e3788dfba32fd56c8ae.png" alt="Categoría 1">
+          <img src="img/gorracat.png" alt="Categoría 1">
           <h5>Gorras</h5> <!-- Título en el pie -->
         </div>
       </div>
@@ -84,7 +84,7 @@
       <!-- Categoría 4 -->
       <div class="col-md-3 col-sm-6" style=" height: 500px;">
         <div class="Categorías">
-          <img src="img/2bb8f1c3f5a03e3788dfba32fd56c8ae.png" alt="Categoría 1">
+          <img src="img/almocat.png" alt="Categoría 1">
           <h5>almohadas</h5> <!-- Título en el pie -->
         </div>
       </div>
@@ -103,7 +103,7 @@
       </div>
       <div class="carousel-inner ">
         <div class="carousel-item active" data-bs-interval="2200">
-          <img src="img/2bb8f1c3f5a03e3788dfba32fd56c8ae.png" class="d-block w-100" alt="..." width="100%"
+          <img src="img/cabtazas.png" class="d-block w-100" alt="..." width="100%"
             height="550px">
           <div class="carousel-caption d-none d-md-block">
             <h5></h5>
@@ -111,14 +111,14 @@
           </div>
         </div>
         <div class="carousel-item" data-bs-interval="2200">
-          <img src="img/483308639_3efcd2.jpg" class="d-block w-100" alt="..." width="100%" height="550px">
+          <img src="img/carugor.png" class="d-block w-100" alt="..." width="100%" height="550px">
           <div class="carousel-caption d-none d-md-block">
             <h5></h5>
             <p></p>
           </div>
         </div>
         <div class="carousel-item" data-bs-interval="2200">
-          <img src="img/tazacateg.jpg" class="d-block w-100" alt="..." width="100%" height="500px">
+          <img src="img/CABPOLOS.png" class="d-block w-100" alt="..." width="100%" height="500px">
           <div class="carousel-caption d-none d-md-block">
             <h5></h5>
             <p></p>
@@ -246,7 +246,7 @@
         Diseñar
        </h2>
        <p>
-        Deja volar tu imaginación, sube tus propios diseños y crea tú mismo tu nueva pieza favorita.
+        Diseñamos tu imaginación,  dinos tus ideas para tu nueva pieza favorita.
        </p>
       </div>
      </div>
