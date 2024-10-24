@@ -69,8 +69,8 @@
                 <div class="row">
                     <div class="col-md-4">
                         <h2 class="section-title">Tus direcciones</h2>
-                        <p class="text-uppercase">Yeferson Chimayco Carbajal</p>
-                        <p>Yeferson Chimayco Carbajal<br>Perú</p>
+                        <p class="text-uppercase">Catalino Egoavil Juan Carlos</p>
+                        <p>Catalino Egoavil Juan Carlos<br>Perú</p>
                         <button class="btn btn-custom">Ver Direcciones</button>
                     </div>
                     <div class="col-md-4">
