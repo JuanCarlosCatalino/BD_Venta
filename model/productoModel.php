@@ -5,18 +5,18 @@ class ProductoModel{
     private $conexion;
     function __construct()
     {
-      $this->conexion=new Conexion ();  
+      $this->conexion= new Conexion ();  
       $this->conexion = 
       $this->conexion ->connect();
     }
 
-    public function registrarProducto
-  ($codigo,$nombre,$detalle, $precio,$stock,$categoria,
-  $imagen1,$proveedor){
-
-    $sql = $ $this->conexion->query("CALL inserteproducto ('{$codigo}',
-    '{$nombre}','{$detalle}','{$precio}','{$stock}','{$categoria}',
-    '{$imagen1}','{$proveedor}',");
+    public function registrarProducto($codigo,$nombre,$detalle, $precio,$stock,$idcategoria,
+  $imagen,$idproveedor){
+    $sql = $this->conexion->query("CALL insertproducto('{$codigo}',
+    '{$nombre}','{$detalle}','{$precio}','{$stock}','{$idcategoria}',
+    '{$imagen}','{$idproveedor}')");
+    $sql = $sql->fetch_object();
+    return $sql;
 
     }
 }

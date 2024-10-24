@@ -21,15 +21,15 @@
             <input type="number" class="form-control" required id="stock" name="stock" >
     </div>
     <div>
-        <label for="">categoria: </label>
-            <input type="number"  class="form-control" required id="categoria" name="categoria">
+        <label for="">idcategoria: </label>
+            <input type="number"  class="form-control" required id="idcategoria" name="idcategoria">
     </div>
     <div>
-        <label for=""> imagen1: </label>
-            <input type="text" class="form-control"  required id="imagen1" name="imagen1">
+        <label for=""> imagen: </label>
+            <input type="text" class="form-control"  required id="imagen" name="imagen">
     </div><div>
-        <label for=""> proveedor:</label>
-            <input type="number" class="form-control" required  id="proveedor" name="proveedor">
+        <label for=""> idproveedor:</label>
+            <input type="number" class="form-control" required  id="idproveedor" name="idproveedor">
     </div>
     <br>
     <button type="button"   class="btn btn-success"  onclick="registrar_producto();">registrar</button>

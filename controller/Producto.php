@@ -1,5 +1,5 @@
 <?php 
-require_once ('./model/productoModel.php');
+require_once ('../model/productoModel.php');
 $tipo = $_REQUEST['tipo'];
 
 $objProducto = new ProductoModel(); // instancio la clase model producto
@@ -12,19 +12,28 @@ if($tipo=="registrar"){
         $detalle = $_POST['detalle'];
         $precio = $_POST['precio'];
         $stock = $_POST['stock'];
-        $categoria = $_POST['categoria'];
-        $imagen1 = $_POST['imagen1'];
-        $proveedor = $_POST['proveedor'];
+        $categoria = $_POST['idcategoria'];
+        $imagen = $_POST['imagen'];
+        $proveedor = $_POST['idproveedor'];
         
         if($codigo==""||$nombre==""||$detalle==""||$precio==""||$stock=="" 
-        ||$categoria==""||$imagen1==""||$proveedor==""){
+        ||$categoria==""||$imagen==""||$proveedor==""){
             $arr_Respuesta = array('status' =>false,
             'mensaje' =>'error campos vacios');
 
  
     }else{
         $arrProducto = $objProducto -> registrarProducto($codigo,$nombre,
-        $detalle, $precio,$stock,$categoria,$imagen1,$proveedor);
+        $detalle, $precio,$stock,$categoria,$imagen,$proveedor);
+        if ($arrProducto->id>0) {
+            $arr_Respuesta = array('status'=>true,
+            'mensaje'=>'Registro exitoso');
+
+        }else{
+            $arr_Respuesta = array('status'=>false,
+            'mensaje'=>'Error al registrar producto');
+        }
+        echo json_encode($arr_Respuesta);
     }
 }
 }
