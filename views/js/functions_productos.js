@@ -33,23 +33,46 @@ try {
 }
 }
 
-async function listar_categorias() {
-    try {
-        let respuesta = await fetch(base_url + 'controller/Categoria.php?tipo=listar');
-        let json = await respuesta.json();
-        if (json.status) {
+async function listar_categorias(){
+    try{
+        let respuesta= await fetch(base_url+'controller/categoria.php?tipo=listar');
+        json = await respuesta.json();
+        if (json.status){
             let datos = json.contenido;
+            let contenido_select = '<option value="">Seleccione</option>';
             datos.forEach(element => {
-                $('#categoria').append($('<option />', {
-                    text: `${element.nombre}`,
-                    value: `${element.id}`
-                }));
+                contenido_select += '<option value="' + element.id + '">' + element.nombre + '</option>';
+                //se trabaja con jquery
+                /*$('#idcategoria').append($('<option />',{
+                    text:${element.nombre},
+                    value: ${element.id}
+                }));*/
             });
+            document.getElementById('idcategoria').innerHTML = contenido_select;
         }
-    } catch (e) {
-        console.log("Error al cargar categorias" + e);
+        console.log(respuesta);
+
+    }catch(e){
+        console.log("error al cargar categorias"+e);
     }
 }
+    async function listar_proveedores() {
+        try {
+            let respuesta = await fetch(base_url + 'controller/proveedor.php?tipo=listar');
+            let json = await respuesta.json();
+            if (json.status) {
+                let datos = json.contenido;
+                let contenido_select = '<option value="">Seleccione</option>';
+                datos.forEach(element => {
+                    contenido_select += '<option value="' + element.id + '">' + element.razon_social+ '</option>';
+                });
+                document.getElementById('idproveedor').innerHTML = contenido_select;
+            }
+        } catch (e) {
+            console.log("Error al cargar proveedores: " + e);
+        }
+    }
+
 
 
 

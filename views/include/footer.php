@@ -44,6 +44,5 @@
   
 </body>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
-<!-- taza -->
+ <script src="<?php echo BASE_URL; ?>views/js/jquery-3.6.0.min.js"></script> 
  

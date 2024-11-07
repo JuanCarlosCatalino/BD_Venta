@@ -31,8 +31,9 @@
             <input type="text" class="form-control"  required id="imagen" name="imagen">
     </div><div>
         <label for=""> idproveedor:</label>
-            <input type="number" class="form-control" required  id="idproveedor" name="idproveedor">
-    </div>
+        <select name="idproveedor" id="idproveedor" class="form-control">
+            <option value="">selecione</option>
+        </select>
     <br>
     <button type="button"   class="btn btn-success"  onclick="registrar_producto();">registrar</button>
     </div>
@@ -43,3 +44,4 @@
 
 <script src="<?php echo BASE_URL;?>views/js/functions_productos.js"></script>
 <script>listar_categorias();</script>
+<script>listar_proveedores();</script>

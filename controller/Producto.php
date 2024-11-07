@@ -12,19 +12,19 @@ if($tipo=="registrar"){
         $detalle = $_POST['detalle'];
         $precio = $_POST['precio'];
         $stock = $_POST['stock'];
-        $categoria = $_POST['idcategoria'];
+        $idcategoria = $_POST['idcategoria'];
         $imagen = $_POST['imagen'];
-        $proveedor = $_POST['idproveedor'];
+        $idproveedor = $_POST['idproveedor'];
         
         if($codigo==""||$nombre==""||$detalle==""||$precio==""||$stock=="" 
-        ||$categoria==""||$imagen==""||$proveedor==""){
+        ||$idcategoria==""||$imagen==""||$idproveedor==""){
             $arr_Respuesta = array('status' =>false,
             'mensaje' =>'error campos vacios');
 
  
     }else{
         $arrProducto = $objProducto -> registrarProducto($codigo,$nombre,
-        $detalle, $precio,$stock,$categoria,$imagen,$proveedor);
+        $detalle, $precio,$stock,$idcategoria,$imagen,$idproveedor);
         if ($arrProducto->id>0) {
             $arr_Respuesta = array('status'=>true,
             'mensaje'=>'Registro exitoso');
