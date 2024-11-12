@@ -16,7 +16,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('../img/log.png'); /* Imagen de fondo */
+  background-image: url('img/log.png'); /* Imagen de fondo */
   background-size: cover;
   background-repeat: no-repeat; 
   filter: blur(10px); /* Aplica el desenfoque */
@@ -281,22 +281,20 @@
   }
   
     .Categorías {
-        background-color: #f8f9fa; /* Color de fondo */
-        border: 1px solid #dee2e6; /* Borde de la categoría */
         padding: 20px; /* Espaciado interno */
         text-align: center; /* Centrar el contenido */
         height: 90%; /* Asegura que ocupe toda la altura de la columna */
         display: flex; /* Para usar flexbox */
         flex-direction: column; /* Ordena el contenido en columna (imagen arriba, título abajo) */
         justify-content: space-between; /* Deja espacio entre la imagen y el título */
-        border-radius: 100%;
-        box-shadow: 0 10px 10px ;
         cursor: pointer;
       }
 
         .Categorías img {
             max-width: 100%; /* Asegura que la imagen no exceda el ancho del contenedor */
             height: 300px; /* Mantiene la proporción de la imagen */
+            object-fit: cover;
+           
           }
       
           .Categorías h5 {
@@ -571,6 +569,9 @@
     text-align: center;
     overflow: hidden; /* Asegura que el pseudo-elemento no se salga del contenedor */
      font-family: fantasy; 
+     background-image: url(../../img/perfilcab.png);
+     filter: blur();
+     z-index: -1; 
   }
 
 .header::before {

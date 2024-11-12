@@ -1,22 +1,22 @@
 <!-- Categorías centradas -->
 <div class="collapse navbar-collapse justify-content-center" id="navbarNav" style="margin-left:200PX ;">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link " href="tazas.html">Tazas</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="polos.html">Polos</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link " href="../index.HTML">EGO-MUNDO</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="gorras.html">Gorras</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link  " href="almohadas.html">Almohadas</a>
-              </li>
-            </ul>
+<ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link " href="<?php echo BASE_URL ?>tazas">Tazas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<?php echo BASE_URL ?>polos">Polos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="<?php echo BASE_URL ?>menu">EGO-MUNDO</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<?php echo BASE_URL ?>gorras">Gorras</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<?php echo BASE_URL ?>almohadas">almohadas</a>
+          </li>
+        </ul>
           </div>
     
           <!-- Barra de búsqueda y íconos de perfil y carrito -->
@@ -33,20 +33,20 @@
           </form>
     
           <!-- Íconos de perfil y carrito -->
-          <a href="perfil.html" class="me-3"> perfil
-            <i class="fas fa-user fa-lg"></i>
-          </a>
-          <a href="carrito.html"> carrito
-            <i class="fas fa-shopping-cart fa-lg"></i>
-          </a>
-    
+          <a href=" <?php echo BASE_URL ?>perfil" class="me-3"> perfil
+        <i class="fas fa-user fa-lg"></i>
+      </a>
+      <a href=" <?php echo BASE_URL ?>carrito"> carrito
+        <i class="fas fa-shopping-cart fa-lg"></i>
+      </a>
+
         </div>
         </div>
       </nav>
 
 
       <div class="img-container">
-        <img src="../img/CABPOLOS.png" alt="Almohada" >
+        <img src="img/CABPOLOS.png" alt="Almohada" >
 
       </div>
       <div class="subtitulo">
