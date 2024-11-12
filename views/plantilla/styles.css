@@ -22,9 +22,6 @@
   filter: blur(10px); /* Aplica el desenfoque */
   z-index: -1; /* Coloca la imagen detrás del contenido */
 }
-.clase {
-  color: red !important;
-}
 
 
 .caja1 {
