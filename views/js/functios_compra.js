@@ -1,8 +1,8 @@
 async function registrar_compra() {
-    let id_producto = document.getElementById('id_producto').value;
-    let cantidad = document.getElementById('cantidad').value;
-    let precio = document.getElementById('precio').value;
-    let id_trabajador = document.getElementById('id_trabajador').value;
+    let id_producto = document.querySelector('#id_producto').value;
+    let cantidad = document.querySelector('#cantidad').value;
+    let precio = document.querySelector('#precio').value;
+    let id_trabajador = document.querySelector('#id_trabajador').value;
 
     // Validación de campos vacíos
     if (id_producto === "" || cantidad === "" || precio === "" || id_trabajador === "") {
@@ -37,5 +37,6 @@ async function registrar_compra() {
         console.log("Oops, ocurrió un error: " + e);
     }
 }
+
 
 

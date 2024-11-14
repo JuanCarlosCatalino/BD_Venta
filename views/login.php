@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>views/plantilla/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <script >const base_url ="<?php echo BASE_URL; ?>"</script>
+
 </head>
 <body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"> </script>
@@ -21,31 +24,31 @@
                 <div class="cajalogin11">
                     <a href="perfil.php"><button class="btn btn-outline-danger" type="submit">REGISTRATE</button></a>
                 </div>
-                <label for="exampleInputEmail1" class="form-label">
-                    <i class="fas fa-user"></i> USUARIO
-                </label>
-                <div class="cajalogin1">
-                    <input class="form-control me-2" type="search" placeholder="Ingresa tu usuario" aria-label="Search">
-                </div>
-                <label for="exampleInputEmail1" class="form-label">
-                    <i class="fas fa-lock"></i> CONTRASEÑA
-                </label>
-                <div class="cajalogin1">
-                    <input class="form-control me-2" type="password" placeholder="Ingresa tu contraseña" aria-label="Search">
-                </div>
-                <div class="cajalogin7">
-                    <a href="login.php" class="text_menu">
-                        <label for="exampleInputEmail1" class="form-label" style="color: black;">¿Olvidaste tu contraseña?</label>
-                    </a>
-                </div>
-                <div class="cajalogin7">
-                    <a href="<?php echo BASE_URL?>menu"><button class="btn btn-dark btn-outline-danger" type="submit" style="width: 200px;">INICIAR SESIÓN</button></a>
-                </div>
+                <form id="iniciar_secion">
+                    <label for="exampleInputEmail1" class="form-label">
+                        <i class="fas fa-user"></i> USUARIO
+                    </label>
+                    <div class="cajalogin1">
+                        <input class="form-control me-2" type="search" placeholder="Ingresa tu usuario" aria-label="Search" id="usuario">
+                    </div>
+                    <label for="exampleInputEmail1" class="form-label">
+                        <i class="fas fa-lock"></i> CONTRASEÑA
+                    </label>
+                    <div class="cajalogin1">
+                        <input class="form-control me-2" type="password" placeholder="Ingresa tu contraseña" aria-label="Search" id="password">
+                    </div>
+                    <div class="cajalogin7">
+                        <a href="login.php" class="text_menu">
+                            <label for="exampleInputEmail1" class="form-label" style="color: black;">¿Olvidaste tu contraseña?</label>
+                        </a>
+                    </div>
+                    <div class="cajalogin7">
+                        <a href="<?php echo BASE_URL?>menu"><button class="btn btn-dark btn-outline-danger" type="submit" style="width: 200px;">INICIAR SESIÓN</button></a>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-    
-
-
+    <script src="<?php echo BASE_URL;?>views/js/functions_login.js"></script>
 </body>
 </html>
