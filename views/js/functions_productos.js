@@ -75,76 +75,7 @@ async function listar_categorias(){
 
         const base_url = 'http://tusitio.com/'; // Asegúrate de usar la URL correcta
 
-async function registrar_categoria() {
-    let nombre = document.getElementById('nombre_categoria').value;
-    let detalle = document.getElementById('detalle_categoria').value;
-
-    if (nombre == "" || detalle == "") {
-        alert("Error, campos vacíos");
-        return;
-    }
-
-    try {
-        const datos = new FormData();
-        datos.append("nombre", nombre);
-        datos.append("detalle", detalle);
-
-        let respuesta = await fetch(base_url + 'controller/categoria.php?tipo=registrar', {
-            method: 'POST',
-            body: datos
-        });
-
-        let json = await respuesta.json();
-
-        if (json.status) {
-            swal("Registro", json.mensaje, "success");
-        } else {
-            swal("Registro", json.mensaje, "error");
-        }
-
-        console.log(json);
-    } catch (e) {
-        console.log("Oops, ocurrió un error: " + e);
-    }
 }
-
-
-        async function registrar_compra(){
-            let id_producto = document.getElementById('id_producto').value;
-            let cantidad = document.getElementById('cantidad').value;
-            let precio = document.getElementById('precio').value;
-            let id_trabajador = document.getElementById('id_trabajador').value;
-        
-            if (id_producto == "" || cantidad == "" || precio == "" || id_trabajador == "") {
-                alert("Error, campos vacíos");
-                return;
-            }
-        
-            try {
-                const datos = new FormData();
-                datos.append("id_producto", id_producto);
-                datos.append("cantidad", cantidad);
-                datos.append("precio", precio);
-                datos.append("id_trabajador", id_trabajador);
-                
-                let respuesta = await fetch(base_url + 'controller/compras.php?tipo=registrar', {
-                    method: 'POST',
-                    body: datos
-                });
-                let json = await respuesta.json();
-                if (json.status) {
-                    swal("Registro", json.mensaje, "success");
-                } else {
-                    swal("Registro", json.mensaje, "error");
-                }
-                console.log(json);
-            } catch (e) {
-                console.log("Oops, ocurrió un error: " + e);
-            }
-        }
-        
-        
-    }
 
 
 
