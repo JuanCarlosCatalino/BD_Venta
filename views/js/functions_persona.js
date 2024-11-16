@@ -1,4 +1,4 @@
- async function registrar_persona() {
+ async function registrarPersona() {
     // Obtener los valores de los campos del formulario usando querySelector
     let nro_identidad = document.querySelector('#nro_identidad').value;
     let razon_social = document.querySelector('#razon_social').value;
@@ -22,14 +22,16 @@
     }
 
     try {
-        const datos = new FormData(formPersona); //obtiene llos datos del formlario
+        const datos = new FormData(document.querySelector('#formPersona')); //obtiene llos datos del formlario
         //enviar datos al controlador
-        let respuesta = await fetch(base_url+'controller/persona.php?tipo=registrar',{
-            method:'POST',
-            mode : 'cors',
+        let respuesta = await fetch(base_url + 'controller/persona.php?tipo=registrar', {
+            method: 'POST',
+            mode: 'cors',
             cache: 'no-cache',
-            body :datos
+            body: datos
         });
+        
+        console.log(await respuesta.text());
         json = await respuesta.json();
         if (json.status) {
             swal("Registro", json.mensaje,"success");

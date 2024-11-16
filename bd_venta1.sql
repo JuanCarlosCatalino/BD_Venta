@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-10-2024 a las 16:43:03
+-- Tiempo de generación: 15-11-2024 a las 03:08:53
 -- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+-- Versión de PHP: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -233,15 +233,15 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `insertpagos` (IN `p_id_venta` INT(1
     SELECT id;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `insertpersona` (IN `p_nro_identidad` VARCHAR(11), IN `p_razon_sacial` VARCHAR(130), IN `p_telefono` VARCHAR(15), IN `p_correo` VARCHAR(100), IN `p_departamento` VARCHAR(20), IN `p_provincia` VARCHAR(30), IN `p_distrito` VARCHAR(50), IN `p_cod_postal` INT(5), IN `p_direccion` VARCHAR(100), IN `p_rol` VARCHAR(15), IN `p_password` VARCHAR(500), IN `p_estado` VARCHAR(1), IN `p_fecha_reg` DATETIME)   BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insertpersona` (IN `p_nro_identidad` VARCHAR(11), IN `p_razon_social` VARCHAR(130), IN `p_telefono` VARCHAR(15), IN `p_correo` VARCHAR(100), IN `p_departamento` VARCHAR(20), IN `p_provincia` VARCHAR(30), IN `p_distrito` VARCHAR(50), IN `p_cod_postal` INT(5), IN `p_direccion` VARCHAR(100), IN `p_rol` VARCHAR(15), IN `p_password` VARCHAR(500), IN `p_estado` VARCHAR(1), IN `p_fecha_reg` DATETIME)   BEGIN
 	DECLARE existe_persona INT;
     DECLARE id INT;
     SET existe_persona = (SELECT COUNT(*) FROM persona WHERE nro_identidad=p_nro_identidad);
     
     IF existe_persona=0 THEN
-    	INSERT INTO persona (nro_identidad,razon_sacial,telefono,correo,departamento,provincia,distrito,cod_postal,direccion,rol,password,estado,fecha_reg)
+    	INSERT INTO persona (nro_identidad,razon_social,telefono,correo,departamento,provincia,distrito,cod_postal,direccion,rol,password,estado,fecha_reg)
         	VALUES 
-(p_nro_identidad,p_razon_sacial,p_telefono,p_correo,p_departamento,p_provincia,p_distrito,p_cod_postal,p_direccion,p_cod_postal,p_direccion,p_rol,p_password,p_estado,p_fecha_reg);
+(p_nro_identidad,p_razon_social,p_telefono,p_correo,p_departamento,p_provincia,p_distrito,p_cod_postal,p_direccion,p_cod_postal,p_direccion,p_rol,p_password,p_estado,p_fecha_reg);
            SET id = LAST_INSERT_ID();
     ELSE
            SET id=0;

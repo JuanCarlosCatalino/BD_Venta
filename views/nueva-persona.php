@@ -1,8 +1,9 @@
 <div class="container form-persona">
-    <form action="" id="formPersona">
+<form action="" id="formPersona" method="POST">
+
         <div>
-            <label for="">nro Identidad:</label>
-            <input type="text" class="form-control" required id="nro_identidad" name="nro_identidad">
+            <label for="">numero de indentidad:</label>
+            <input type="number" class="form-control" required id="nro_identidad" name="nro_identidad">
         </div>
         <div>
             <label for="">razón Social:</label>
@@ -33,7 +34,7 @@
             <input type="text" class="form-control" required id="cod_postal" name="cod_postal">
         </div>
         <div>
-            <label for="">dirección:</label>
+            <label for="">direccion:</label>
             <input type="text" class="form-control" required id="direccion" name="direccion">
         </div>
         <div>
@@ -41,7 +42,7 @@
             <input type="text" class="form-control" required id="rol" name="rol">
         </div>
         <div>
-            <label for="">contraseña:</label>
+            <label for="">password:</label>
             <input type="password" class="form-control" required id="password" name="password">
         </div>
         <div>
@@ -53,9 +54,14 @@
             <input type="date" class="form-control" required id="fecha_reg" name="fecha_reg">
         </div>
         <br>
-        <button type="button" class="btn btn-success" onclick="registrar_persona();">Registrar</button>
+        <button type="button" class="btn btn-success" onclick="registrarPersona();">Registrar</button>
+
     </form>
 </div>
 
-<script src="<?php echo BASE_URL;?>views/js/functions_persona.js"></script>
+<script src="<?php echo BASE_URL; ?>views/js/functions_persona.js"></script>
+
+
+</body>
+
 
