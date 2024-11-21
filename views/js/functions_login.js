@@ -1,59 +1,42 @@
-
-
-
-
 async function iniciar_sesion() {
-    console.log('Iniciar sesión');
-    // Aquí puedes agregar la lógica para enviar los datos del formulario
-}
-
-async function iniciar_sesion() {
-    let usuario = document.querySelector('usuario').value;
-    let password = document.querySelector('password').value;
-
-    if (usuario == "" || password == "") {
-        alert("Campos vacíos");
+    /* console.log('iniciar sesion prueba'); */
+    let usuario = document.querySelector('#usuario');
+    let password = document.querySelector('#password');
+    if (usuario=='' || password=='') {
+        alert("campos vacios");
         return;
     }
-
     try {
-        // Capturamos datos del formulario HTML
-        const datos = new FormData();
-        datos.append("usuario", usuario);
-        datos.append("password", password);
-
-        // Enviar datos hacia el controlador
-        let respuesta = await fetch(base_url + 'controller/login.php', {
-            method: "POST",
-            cache: "no-cache",
-            body: datos
+        const datos = new FormData(frm_iniciar_sesion); //obtiene llos datos del formlario
+        //enviar datos al controlador
+        let respuesta = await fetch(base_url+'controller/Login.php?tipo=iniciar_sesion',{
+            method:'POST',
+            mode : 'cors',
+            cache: 'no-cache',
+            body :datos
         });
-
-        let json = await respuesta.json();
+        json = await respuesta.json();
         if (json.status) {
-            swal("Iniciar Sesión", json.mensaje, "success");
-
-            location.replace(base_url+nuevo-producto)
-        } else {
-            swal("Iniciar Sesión", json.mensaje, "error");
+            //swal("iniciar sesion", json.mensaje,"success");
+            location.replace(base_url+"menu");
+        }else{
+            swal("iniciar sesion", json.mensaje,"error");
         }
-        console.log(json);
+    
     } catch (e) {
-        console.log("Oops, ocurrió un error: " + e);
+        console.log("Oops, ocurrio un error" + e);
     }
 }
-
- 
-
-if (document.querySelector('#formLogin')) { // Cambié 'frm_iniciar_sesion' por 'formLogin'
-    let frm_iniciar_sesion = document.querySelector('#formLogin'); // Corregí el nombre de la variable
-    frm_iniciar_sesion.onsubmit = function (e) {
-        e.preventDefault(); // Previene que el formulario se envíe por defecto
-        iniciar_sesion(); // Llama a la función iniciar_sesion
-    }
-
-    async function cerrar_secion() {
-        let respuesta = await fetch(base_url+'controller/login.php? tipo=cerrar_secion',{
+if (document.querySelector('#frm_iniciar_sesion')) {
+   let frm_iniciar_sesion = document.querySelector('#frm_iniciar_sesion');
+   frm_iniciar_sesion.onsubmit = function (e){
+    e.preventDefault();
+    iniciar_sesion();
+   }
+}
+async function cerrar_sesion() {
+    try {
+        let respuesta = await fetch(base_url+'controller/Login.php?tipo=cerrar_sesion',{
             method: 'POST',
             mode: 'cors',
             cache: 'no-cache'
@@ -61,11 +44,8 @@ if (document.querySelector('#formLogin')) { // Cambié 'frm_iniciar_sesion' por 
         json = await respuesta.json();
         if (json.status) {
             location.replace(base_url+'login');
-
-            
         }
-        
-    }catch (error){
-        console.log()
+    } catch (error) {
+        console.log('Ocurrio un error'+error);
     }
 }
