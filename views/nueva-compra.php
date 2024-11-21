@@ -25,5 +25,5 @@
 </div>
 </form>
 </div>
-<script src="<?php echo BASE_URL;?>views/js/functions_compra.js"></script>
+<script src="<?php echo BASE_URL;?>views/js/functios_compra.js"></script>
 

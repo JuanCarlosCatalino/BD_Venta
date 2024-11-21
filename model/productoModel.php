@@ -10,6 +10,16 @@ class ProductoModel{
       $this->conexion ->connect();
     }
 
+    public function obtener_productos(){
+      $arrRespuesta = array();
+      $respuesta = $this->conexion->query("SELECT * FROM producto");
+      while ($objeto = $respuesta->fetch_object()) {
+         array_push($arrRespuesta,$objeto);
+      }
+      return $arrRespuesta;
+  }
+
+
     public function registrarProducto($codigo,$nombre,$detalle, $precio,$stock,$idcategoria,
   $imagen,$idproveedor){
     $sql = $this->conexion->query("CALL insertproducto('{$codigo}',
