@@ -24,7 +24,7 @@ class ProductoModel{
   $imagen,$idproveedor){
     $sql = $this->conexion->query("CALL insertproducto('{$codigo}',
     '{$nombre}','{$detalle}','{$precio}','{$stock}','{$idcategoria}',
-    '{$imagen}','{$idproveedor}')");
+    '{$imagen}','{$idproveedor}','{$tipoArchivo}')");
     $sql = $sql->fetch_object();
     return $sql;
   }

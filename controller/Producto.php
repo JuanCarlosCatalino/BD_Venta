@@ -25,9 +25,20 @@ if ($tipo=="registrar") {
     if ($codigo=="" || $nombre=="" || $detalle=="" || $precio==""|| $stock==""|| $idcategoria=="" || $imagen=="" || $idproveedor=="") {
         $arr_Respuesta = array('status'=> false, 'mensaje'=>'error campos vacios');
     }else {
-        $arrProducto = $objProducto->registrarProducto($codigo, $nombre, $detalle,$precio, $stock, $idcategoria, $imagen, $idproveedor);
-        if ($arrProducto->id>0) {
+        //cargar archivos
+        $archivo = $_FILES['imagen']['tmp_name'];
+        $destino = '../assets/img_productos/';
+        $tipoArchivo = strtolower(pathinfo($_FILES["imagen"]["name"], PATHINFO_EXTENSION));
+
+        $arrProducto = $objProducto->registrarProducto($codigo, $nombre, $detalle,$precio, $stock, $idcategoria, $imagen, $idproveedor,$tipoArchivo);
+        if ($arrProducto->id_n>0) {
             $arr_Respuesta = array('status' => true, 'mensaje' =>'registro exitoso');
+            $nombre = $arrProducto->id_n . "." . $tipoArchivo;
+
+            if (move_uploaded_file($archivo, $destino . '' . $nombre)) {
+            } else {
+                $arr_Respuesta = array('status' => true, 'mensaje' => 'Registro Exitoso, error al subir imagen');
+            }
             //cargar archivos
             $archivo = $_FILES['imagen']['tmp_name'];
             $destino = './assets/img_productos/';
