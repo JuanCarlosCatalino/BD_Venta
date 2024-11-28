@@ -31,7 +31,7 @@
         </div>
         <div>
             <label for="">cod_postal:</label>
-            <input type="text" class="form-control" required id="cod_postal" name="cod_postal">
+            <input type="number" class="form-control" required id="cod_postal" name="cod_postal">
         </div>
         <div>
             <label for="">direccion:</label>

@@ -21,19 +21,19 @@ $objPersona = new PersonaModel();
             $provincia = $_POST['provincia'];
             $distrito = $_POST['distrito'];
             $direccion = $_POST['direccion'];
-            $codigo_postal = $_POST['cod_postal'];
+            $cod_postal = $_POST['cod_postal'];
             $rol = $_POST['rol'];
             $password = $_POST['password'];
             $estado = $_POST['estado'];
-            $fecha_registro = $_POST['fecha_reg'];
+            $fecha_reg = $_POST['fecha_reg'];
 
             $secure_password = password_hash($nro_identidad,PASSWORD_DEFAULT);
             // Validación para campos vacíos
-if ($nro_identidad=="" || $razon_social=="" || $telefono=="" || $correo=="" || $departamento=="" || $provincia=="" || $distrito=="" || $direccion=="" || $cod_postal=="" || $rol=="" || $password=="" || $estado=="" || $fecha_reg=="") {
+if ($nro_identidad=="" || $razon_social=="" || $telefono=="" || $correo=="" || $departamento=="" || $provincia=="" || $distrito=="" || $direccion=="" || $cod_postal=="" || $rol=="" || $secure_password=="" || $password=="" || $estado=="" || $fecha_reg=="") {
     $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, campos vacíos');
 } else {
     // Aquí puedes agregar la lógica para registrar la persona en la base de datos
-    $arrPersona = $objPersona->registrarPersona($nro_identidad, $razon_social, $telefono, $correo, $departamento, $provincia, $distrito, $direccion, $cod_postal, $rol, $secure_password, $estado, $fecha_reg);
+    $arrPersona = $objPersona->registrarPersona($nro_identidad, $razon_social, $telefono, $correo, $departamento, $provincia, $distrito, $direccion, $cod_postal, $rol, $password, $estado, $fecha_reg);
 
     // Verificar si el registro fue exitoso
     if ($arrPersona->id > 0) {
@@ -47,8 +47,9 @@ if ($nro_identidad=="" || $razon_social=="" || $telefono=="" || $correo=="" || $
     }
 ?>
 
+ 
 <?php
-require_once('../model/ProveedorModel.php');
+/* require_once('../model/ProveedorModel.php');
 
 $tipo = $_REQUEST['tipo'];
 $objProveedor = new ProveedorModel();
@@ -69,5 +70,6 @@ if ($tipo == "listar") {
     }
 
     echo json_encode($arr_Respuesta);
-}
+} */
 ?>
+
