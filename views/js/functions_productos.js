@@ -129,6 +129,8 @@ async function ver_producto(id) {
         json = await respuesta.json();
         if (json.status){
 
+            // aqui aumentar lo que esta en formulario de editar_producto......
+
             document.querySelector('#codigo').value = json.contenido.codigo;
 
         }else{
