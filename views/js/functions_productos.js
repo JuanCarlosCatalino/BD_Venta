@@ -19,7 +19,7 @@ async function listar_productos(params) {
                 <td>${item.stock}</td>
                 <td>${item.categoria.nombre}</td>
                 <td>${item.id_proveedor}</td>
-                <td>${item.codigo}</td>
+                <td>${item.options}</td>
                 `;
                 document.querySelector('#tbl_producto').appendChild(nueva_fila);
             }); 
@@ -115,6 +115,36 @@ async function listar_categorias(){
         const base_url = 'http://tusitio.com/'; // Asegúrate de usar la URL correcta
 
 }
+
+async function ver_producto(id) {
+    const formData = new FormData();
+    formData.append('id_producto', id);
+    try {
+        let respuesta = await fetch(base_url+'cntroller/Producto.php?tipo=ver',{
+            metodo: 'POST',
+            mode: 'cors',
+            cache: 'no-cache',
+            body: formData
+        });
+        json = await respuesta.json();
+        if (json.status){
+
+            document.querySelector('#codigo').value = json.contenido.codigo;
+
+        }else{
+            window.location = base_url+"productos";
+        }
+
+        console.log(json);
+
+
+    } catch (error) {
+        console.log("oops ocurrio un error"+error);
+    }
+    
+}
+
+
 
 
 

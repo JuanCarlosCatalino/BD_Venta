@@ -68,16 +68,18 @@ if ($tipo=="listar") {
             $r_categoria= $objCategoria->obtener_categoria($id_categoria);
             $arr_productos [$i] ->categoria=$r_categoria;
                 //provedor
-            $id_proveedor = $arr_productos[$i]->id_categoria;
-            $r_categoria= $objCategoria->obtener_categoria($id_categoria);
-            $arr_productos [$i] ->categoria=$r_categoria;
+           /* $id_proveedor = $arr_productos[$i]->id_categoria;
+            $r_categoria= $objCategoria->obtener_proveedor($id_categoria);
+            $arr_productos [$i] ->categoria=$r_categoria;*/
 
             //produc
             $id_Productos = $arr_productos[$i]->id;
-            $producto= $arr_productos[$i]->nombre; 
-            $opciones='
-            <a href=" class ="btn btn-success"><i class="fa fa-pencil"></i> </a>
-            ';
+            $producto= $arr_productos[$i]->nombre;
+
+              //localhos/editar/producto
+              $opciones = '<a href="'.BASE_URL.'Editar-producto/'.$id_producto.'">Editar</a><button onclick="eliminar_producto('.$id_producto.');">Eliminar</button>';
+
+    
             $arr_productos[$i]->options= $opciones;
         }
         $arr_Respuesta['status']= true;
@@ -86,7 +88,19 @@ if ($tipo=="listar") {
     echo json_encode($arr_Respuesta);
 }
 if ($tipo=="ver") {
-    print_r($_POST);
+    //print_r($_POST); 
+    $id_producto = $_POST['id_producto'];
+    $arr_Respuesta = $objProducto->ver_Producto($id_producto);
+    print_r($arr_Respuesta); // para que no salga error aveces se deve comentar este tipo de codig
+
+    if (empty($arr_Respuesta)) {
+        $response = array('status' => false, 'mensaje' => "error no hay info");
+
+    }else {
+       $response = array('status'=> true, 'mensaje'=>"datos encontraos",'contenido'=>$arr_Respuesta);
+    }
+    echo json_decode($arr_Respuesta);
+
 }
 if ($tipo=="actualizar") {
     print_r($_POST);
