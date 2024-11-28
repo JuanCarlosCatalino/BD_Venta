@@ -7,7 +7,7 @@ async function iniciar_sesion() {
         return;
     }
     try {
-        const datos = new FormData(frm_iniciar_sesion); //obtiene llos datos del formlario
+        const datos = new FormData(iniciar_sesion); //obtiene llos datos del formlario
         //enviar datos al controlador
         let respuesta = await fetch(base_url+'controller/Login.php?tipo=iniciar_sesion',{
             method:'POST',
