@@ -27,8 +27,8 @@ async function iniciar_sesion() {
         console.log("Oops, ocurrio un error" + e);
     }
 }
-if (document.querySelector('#frm_iniciar_sesion')) {
-   let frm_iniciar_sesion = document.querySelector('#frm_iniciar_sesion');
+if (document.querySelector('#iniciar_sesion')) {
+   let frm_iniciar_sesion = document.querySelector('#iniciar_sesion');
    frm_iniciar_sesion.onsubmit = function (e){
     e.preventDefault();
     iniciar_sesion();

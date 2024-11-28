@@ -24,7 +24,7 @@
                 <div class="cajalogin11">
                     <a href="perfil.php"><button class="btn btn-outline-danger" type="submit">REGISTRATE</button></a>
                 </div>
-                <form id="iniciar_secion">
+                <form id="iniciar_sesion">
                     <label for="exampleInputEmail1" class="form-label">
                         <i class="fas fa-user"></i> USUARIO
                     </label>
