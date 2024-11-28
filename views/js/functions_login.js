@@ -7,7 +7,7 @@ async function iniciar_sesion() {
         return;
     }
     try {
-        const datos = new FormData(iniciar_sesion); //obtiene llos datos del formlario
+        const datos = new FormData(form_iniciar_sesion); //obtiene llos datos del formlario
         //enviar datos al controlador
         let respuesta = await fetch(base_url+'controller/Login.php?tipo=iniciar_sesion',{
             method:'POST',
@@ -27,9 +27,9 @@ async function iniciar_sesion() {
         console.log("Oops, ocurrio un error" + e);
     }
 }
-if (document.querySelector('#iniciar_sesion')) {
-   let iniciar_sesion = document.querySelector('#iniciar_sesion');
-   iniciar_sesion.onsubmit = function (e){
+if (document.querySelector('#form_iniciar_sesion')) {
+   let form_iniciar_sesion = document.querySelector('#form_iniciar_sesion');
+   form_iniciar_sesion.onsubmit = function (e){
     e.preventDefault();
     iniciar_sesion();
    }
