@@ -74,7 +74,7 @@ try {
 
 async function listar_categorias(){
     try{
-        let respuesta= await fetch(base_url+'controller/categoria.php?tipo=listar');
+        let respuesta= await fetch(base_url+'controller/Categoria.php?tipo=listar');
         json = await respuesta.json();
         if (json.status){
             let datos = json.contenido;
@@ -97,7 +97,7 @@ async function listar_categorias(){
 }
     async function listar_proveedores() {
         try {
-            let respuesta = await fetch(base_url + 'controller/proveedor.php?tipo=listar');
+            let respuesta = await fetch(base_url + 'controller/Proveedor.php?tipo=listar');
             let json = await respuesta.json();
             if (json.status) {
                 let datos = json.contenido;
@@ -112,7 +112,7 @@ async function listar_categorias(){
         }
 
 
-        const base_url = 'http://tusitio.com/'; // Asegúrate de usar la URL correcta
+        /* const base_url = 'http://tusitio.com/'; // Asegúrate de usar la URL correcta */
 
 }
 

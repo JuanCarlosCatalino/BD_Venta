@@ -21,7 +21,7 @@
             <input type="number" class="form-control" required id="stock" name="stock" >
     </div>
     <div>
-        <label for="">idcategoria: </label>
+        <label for="">Categoria: </label>
         <select name="idcategoria" id="idcategoria" class="form-control">
             <option value="">selecione</option>
         </select>
@@ -30,7 +30,7 @@
         <label for=""> imagen: </label>
             <input type="file" class="form-control"  required id="imagen" name="imagen">
     </div><div>
-        <label for=""> idproveedor:</label>
+        <label for="">Proveedor:</label>
         <select name="idproveedor" id="idproveedor" class="form-control">
             <option value="">selecione</option>
         </select>
