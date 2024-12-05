@@ -39,6 +39,12 @@ class ProductoModel{
       return $sql;
 
     }
+// aqui falta arreglar en los procedimientos y borrar
+    public function actualizarProducto($id, $nombre, $detalle,$precio, $stock, $idcategoria, $imagen, $idproveedor){
+      $sql = $this->conexion->query("CALL actualizarproducto('{$id}',
+    '{$nombre}','{$detalle}','{$precio}','{$stock}','{$idcategoria}',
+    ','{$idproveedor}',)");
+    }
 
   }
 

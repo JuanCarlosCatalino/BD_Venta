@@ -1,5 +1,6 @@
 <div class="container form-nproduct " >
 <form action="" id="frmProducto">
+    
     <div>
         <label for=""> codigo: </label>
             <input type="text"  class="form-control" required id="codigo" name="codigo" >

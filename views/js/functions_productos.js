@@ -46,6 +46,8 @@ async function registrar_producto(){
     let idcategoria = document.querySelector('#idcategoria').value;
     let imagen = document.querySelector('#imagen').value; // solo id
     let idproveedor = document.querySelector('#idproveedor').value;
+    // estamos aumentando y falta aumentar en los demas (formu, en todo de autualizar producto)
+    let img = document.querySelector('#img').value;
     
     if (codigo=="" || nombre=="" || detalle=="" || precio==""|| stock==""|| idcategoria=="" || imagen=="" || idproveedor=="") { // = para asignar valor == para preguntar que valor tiene
         alert("error, campos vacios");
@@ -145,6 +147,8 @@ async function ver_producto(id) {
     }
     
 }
+
+
 
 
 
