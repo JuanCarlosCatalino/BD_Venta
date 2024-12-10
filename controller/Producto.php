@@ -2,7 +2,7 @@
 require_once('../model/productoModel.php');
 require_once('../model/categoriaModel.php');
 require_once('../model/personaModel.php');
-$tipo = isset($_REQUEST['tipo']) ? $_REQUEST['tipo'] : null;
+$tipo = $_REQUEST['tipo'];
 
 # instacncion ña clase model producto
 $objProducto = new productoModel();
@@ -36,7 +36,7 @@ if ($tipo=="registrar") {
             $newid = $arrProducto->id_n;
             $arr_Respuesta = array('status' => true, 'mensaje' =>'registro exitoso');
             $nombre=$arrProducto->id_n. ".". $tipoArchivo;
-            //cargar imagene
+            //cargar imagen
             if (move_uploaded_file($archivo, $destino . '' . $nombre)) {
             } else {
                 $arr_Respuesta = array('status' => true, 'mensaje' =>'registro exitoso');
@@ -79,58 +79,64 @@ if ($tipo=="listar") {
     echo json_encode($arr_Respuesta);
 }
 if ($tipo=="ver") {
-    //print_r($_POST); 
-    $id_producto = $_POST['id_producto'];
-    $arr_Respuesta = $objProducto->ver_Producto($id_producto);
-    print_r($arr_Respuesta); // para que no salga error aveces se deve comentar este tipo de codig
-
-    if (empty($arr_Respuesta)) {
-        $response = array('status' => false, 'mensaje' => "error no hay info");
-
-    }else {
-       $response = array('status'=> true, 'mensaje'=>"datos encontraos",'contenido'=>$arr_Respuesta);
-    }
-    echo json_decode($arr_Respuesta);
-
-}
-if ($tipo=="actualizar") {
+    /*  print_r($_POST); */
+     $id_producto = $_POST['id_producto'];
+     $arr_Respuesta = $objProducto->verProducto($id_producto);
+     if (empty($arr_Respuesta)) {
+         $response = array ('status' => false, 'mensaje' =>"Error, no hay ifno");
+     } else {
+         $response = array ('status' => false, 'mensaje' =>"Datos encontrados", 'contenido' =>$arr_Respuesta);
+     }
+     echo json_encode($response);
+ }
+if ($tipo == "actualizar") {
     //print_r($_POST);
-    //print_r($_FILES['imagen']['tmp_name']); //uta de la imagen dise
+    //print_r($_FILES['imagen']['tmp_name']);
 
-    if($_POST);
-    $id_producto= $_POST['codigo'];
-    $nombre= $_POST['nombre'];
-    $detalle= $_POST['detalle'];
-    $precio= $_POST['precio'];
-    $stock= $_POST['stock'];
-    $idcategoria= $_POST['idcategoria'];
-    $imagen= 'imagen';
-    $idproveedor= $_POST['idproveedor'];
-    if ($codigo=="" || $nombre=="" || $detalle=="" || $precio==""|| $stock==""|| $idcategoria=="" || $imagen=="" || $idproveedor=="") {
-       
-        $arr_Respuesta = array('status'=> false, 'mensaje'=>'error campos vacios');
-}else{
-    $arrProducto = $objProducto->actualizarProducto($id_producto, $nombre, $detalle,$precio, $stock, $idcategoria, $imagen, $idproveedor);
-    if($arrProducto->p_id > 0){
-        $arr_Respuesta = array('status' => true, 'mensaje' =>'Actualizado correctamente');
+    $id_producto = $_POST['id_producto'];
+    $img = $_POST['img'];
+    $nombre = $_POST['nombre'];
+    $detalle = $_POST['detalle'];
+    $precio = $_POST['precio'];
+    $categoria = $_POST['idcategoria'];
+    $proveedor = $_POST['proveedor'];
+    if ($nombre == "" || $detalle == "" || $precio == "" || $categoria == "" || $proveedor == "") {
+        //repuesta
+        $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, campos vacíos');
+    } else {
+        $arrProducto = $objProducto->actualizarProducto($id_producto, $codigo, $nombre, $detalle,$precio, $stock, $idcategoria, $imagen, $proveedor );
+        if ($arrProducto->p_id > 0) {
+            $arr_Respuesta = array('status' => true, 'mensaje' => 'Actualizado Correctamente');
 
-        if ($_FILES ['imagen']['tmp_name'] !=""){
-            unlink('../assets/img_productos/')
-
-            if (move_uploaded_file($archivo, $destino . '' . $nombre)) {
+            if ($_FILES['imagen']['tmp_name'] != "") {
+                unlink('../assets/img_productos/' . $img);
 
                 //cargar archivos
-        $archivo = $_FILES['imagen']['tmp_name'];
-        $destino = '../assets/img_productos/';
-        $tipoArchivo = strtolower(pathinfo($_FILES["imagen"]["name"],PATHINFO_EXTENSION));
+                $archivo = $_FILES['imagen']['tmp_name'];
+                $destino = '../assets/img_productos/';
+                $tipoArchivo = strtolower(pathinfo($_FILES["imagen"]["name"], PATHINFO_EXTENSION));
+                if (move_uploaded_file($archivo, $destino . '' . $id_producto.'.'.$tipoArchivo)) {
+                }
+            }
+        } else {
+            $arr_Respuesta = array('status' => false, 'mensaje' => 'Error al actualizar producto');
         }
-       
     }
+    echo json_encode($arr_Respuesta);
+    print_r($_POST['']);
 }
+if ($tipo == "eliminar") {
+     //print_r($_POST); 
+     $id_producto = $_POST['id_producto'];
+     $arr_Respuesta = $objProducto->eliminarProducto($id_producto);
+     print_r($arr_Respuesta); // para que no salga error aveces se deve comentar este tipo de codig
+ 
+     if (empty($arr_Respuesta)) {
+         $response = array('status' => false, 'mensaje' => "error no hay info");
+ 
+     }else {
+        $response = array('status'=> true, 'mensaje'=>"datos encontraos",'contenido'=>$arr_Respuesta);
+     }
+     echo json_decode($arr_Respuesta);
 }
-if ($tipo=="eliminar") {
-    print_r($_POST);
-}
-
-
 ?>

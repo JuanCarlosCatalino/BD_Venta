@@ -13,13 +13,6 @@
                 </tr>
             </thead>
             <tbody id="tbl_producto">
-                <td>1</td>
-                <td>777</td>
-                <td>productp</td>
-                <td>10</td>
-                <td>polo</td>
-                <td>catalino</td>
-                <td>editar/eliminar</td>
             </tbody>
         </table>
     </div>
