@@ -28,14 +28,15 @@
     </div>
     <div>
         <label for=""> imagen: </label>
-            <input type="file" class="form-control"  required id="imagen" name="imagen">
-    </div><div>
+            <input type="file" class="form-control"  required id="imagen" name="imagen" >
+    </div>
+    <div>
         <label for="">Proveedor:</label>
         <select name="idproveedor" id="idproveedor" class="form-control">
             <option value="">selecione</option>
         </select>
     <br>
-    <button type="button"   class="btn btn-success"  onclick="registrar_producto();">registrar</button>
+    <button type="button"  class="btn btn-success"  onclick="registrar_producto();">registrar</button>
     </div>
     </div>
 </form>

@@ -3,7 +3,7 @@ class vistaModelo{
 
 
     protected static function obtener_vistas ($vista){
-        $palabras_permitidas = ['usuario','editar-producto','nueva-compra','nuevo-producto','nueva-persona','productos','almohadas','carrito','detalles','gorras','perfil','plantilla','polos','tazas','menu'];
+        $palabras_permitidas = ['usuario','editar-producto','nueva-compra','nuevo-producto','nueva-persona','productos','almohadas','carrito','detalles','gorras','perfil','plantilla','polos','tazas','menu','panel-control'];
       //para obligar a iniciar secion
         if (isset($_SESSION['sesion_ventas_id'])) {
         return "login";

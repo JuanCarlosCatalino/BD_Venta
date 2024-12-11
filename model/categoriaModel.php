@@ -27,10 +27,6 @@ class CategoriaModel{
 
 public function registrar_categoria($nombre,$detalle){
   $sql = $this->conexion->query("CALL insertar_categoria('{$nombre}', '{$detalle}')");
- 
-
-
-
   $sql = $sql->fetch_object();
   return $sql;
 }
