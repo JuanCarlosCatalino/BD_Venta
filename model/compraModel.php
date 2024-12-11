@@ -1,7 +1,7 @@
 <?php
 require_once "../librerias/conexion.php";
 class compraModel
-{ # el model se comunica con el controlador y la abse de datos
+{ 
     private $conexion;
     function __construct()
     {
@@ -15,9 +15,27 @@ class compraModel
         return $sql;
         print_r($codigo);
     }
-    
+    public function obtener_compra(){
+        $arrRespuesta = array();
+        $respuesta = $this->conexion->query("SELECT*FROM compras");
+        while ($objeto = $respuesta->fetch_object()) {
+            array_push($arrRespuesta,$objeto);
+        }
+        return $arrRespuesta;
+    }
+    public function obtener_trabajador()
+    {
+        $arrRespuesta = array();
+        //BD
+        $respuesta = $this->conexion->query("SELECT * FROM persona WHERE rol = 'trabajador'");
+        
+        while ($objeto = $respuesta->fetch_object()) {
+            array_push($arrRespuesta, $objeto);
+        }
+        
+        return $arrRespuesta;
+    }
 }
-?>
 
 
 
