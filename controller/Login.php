@@ -34,4 +34,6 @@ if ($tipo=="cerrar_sesion") {
     echo json_encode($arrResponse);
 }
 die;
+
+
 ?>

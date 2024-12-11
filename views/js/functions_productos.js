@@ -1,8 +1,8 @@
-async function listar_productos() {
+async function listar_productos(params) {
     try {
 
         let respuesta = await fetch(base_url+'controller/Producto.php?tipo=listar');
-         let json = await respuesta.json();
+        json = await respuesta.json();
         if (json.status) {
             let datos = json.contenido;
             let cont = 0;
@@ -10,8 +10,8 @@ async function listar_productos() {
 
             datos.forEach(item => {
                 let  nueva_fila = document.createElement("tr"); 
-                nueva_fila.id = "fila" + item.id; // el item.id es  de la base de datos
-                 cont+=1; // o +=1
+                nueva_fila.id = "fila" +item.id; // el item.id es  de la base de datos
+                 cont++; // o +=1
                 nueva_fila.innerHTML =`
                 <th>${cont}</th>
                 <td>${item.codigo}</td>
@@ -24,17 +24,14 @@ async function listar_productos() {
                 document.querySelector('#tbl_producto').appendChild(nueva_fila);
             }); 
         } 
-        console.log(json);
+        console.log(respuesta);
     } catch (e) {
-        console.log("salio error "+ error);
+        console.log("error "+ e);
     }
 }
 if (document.querySelector('#tbl_producto')){
     listar_productos();
 }
-
-   
-
 
 
 async function registrar_producto(){
@@ -43,120 +40,111 @@ async function registrar_producto(){
     let detalle = document.querySelector('#detalle').value; // solo id
     let precio = document.querySelector('#precio').value;
     let stock = document.querySelector('#stock').value; // solo id
-    let idcategoria = document.querySelector('#idcategoria').value;
-    let fecha_v = document.querySelector('#fecha_v').value;
+    let categoria = document.querySelector('#idcategoria').value;
     let imagen = document.querySelector('#imagen').value; // solo id
-    let idproveedor = document.querySelector('#idproveedor').value;
+    let proveedor = document.querySelector('#proveedor').value;
     
-    
-    if (codigo=="" || nombre=="" || detalle=="" || precio==""|| stock==""|| idcategoria=="" || fecha_v ==""|| imagen=="" || idproveedor=="") { // = para asignar valor == para preguntar que valor tiene
+    if (codigo=="" || nombre=="" || detalle=="" || precio==""|| stock==""|| categoria=="" || imagen=="" || proveedor=="") { // = para asignar valor == para preguntar que valor tiene
         alert("error, campos vacios");
         return;
     }
-    
+
 try {
     const datos = new FormData(formProducto); //obtiene llos datos del formlario
     //enviar datos al controlador
-    let respuesta = await fetch(base_url + 'controller/Producto.php?tipo=registrar',{
+    let respuesta = await fetch(base_url+'controller/Producto.php?tipo=registrar',{
         method:'POST',
         mode : 'cors',
         cache: 'no-cache',
-        body : datos
+        body :datos
     });
     json = await respuesta.json();
-    if (json.status){
+    if (json.status) {
         swal("Registro", json.mensaje,"success");
-    }else{ swal("Registro", json.mensaje,"error");
-
+    }else{
+        swal("Registro", json.mensaje,"error");
     }
-    console.log(json);
+
 } catch (e) {
     console.log("Oops, ocurrio un error" + e);
 }
 }
 
 async function listar_categorias(){
-    try{
-        let respuesta= await fetch(base_url+'controller/Categoria.php?tipo=listar');
+    try {
+        let respuesta = await fetch(base_url+'controller/Categoria.php?tipo=listar');
         json = await respuesta.json();
-        if (json.status){
+        if (json.status) {
             let datos = json.contenido;
-            let contenido_select = '<option value="">Seleccione</option>';
+
             datos.forEach(element => {
-                contenido_select += '<option value="' + element.id + '">' + element.nombre + '</option>';
-                //se trabaja con jquery
-                /*$('#idcategoria').append($('<option />',{
-                    text:${element.nombre},
-                    value: ${element.id}
-                }));*/
-            });
-            document.getElementById('idcategoria').innerHTML = contenido_select;
+                $('#idcategoria').append($('<option/>',{
+                    text: `${element.nombre}`,
+                    value: `${element.id}`
+                }));
+            }); 
+            
         }
         console.log(respuesta);
-
-    }catch(e){
+    } catch (e) {
         console.log("error al cargar categorias"+ e);
     }
 }
-    async function listar_proveedores() {
-        try {
-            let respuesta = await fetch(base_url + 'controller/Persona.php?tipo=listar_proveedor');
-            let json = await respuesta.json();
-            if (json.status) {
-                let datos = json.contenido;
-                let contenido_select = '<option value="">Seleccione</option>';
-                datos.forEach(element => {
-                    contenido_select += '<option value="' + element.id + '">' + element.razon_social+ '</option>';
-                });
-                document.getElementById('idproveedor').innerHTML = contenido_select;
-            }
-
-            console.log(respuesta);
-        } catch (e) {
-            console.log("Error al cargar proveedores: " + e);
+async function listar_proveedores() {
+    try {
+        // Envía la solicitud al controlador de proveedores
+        let respuesta = await fetch(base_url + 'controller/persona.php?tipo=listarproveedor');
+        let json = await respuesta.json();
+        if (json.status) {
+            let datos = json.contenido;
+            let contenido_select = '<option value="">Seleccione Proveedor</option>';
+            datos.forEach(element => {
+                contenido_select += '<option value="' + element.id + '">' + element.razon_social + '</option>';
+                // O usando jQuery
+                /*$('#proveedor').append($('<option />', {
+                    text: `${element.nombre}`,
+                    value: `${element.id}`
+                }));*/
+            });
+            document.getElementById('proveedor').innerHTML = contenido_select;
         }
-
-
-        /* const base_url = 'http://tusitio.com/'; // Asegúrate de usar la URL correcta */
-
+        console.log(respuesta);
+    } catch (e) {
+        console.error("Error al cargar proveedores: " + e);
+    }
 }
 
 async function ver_producto(id) {
     const formData = new FormData();
     formData.append('id_producto', id);
     try {
-        let respuesta = await fetch(base_url+'cntroller/Producto.php?tipo=ver',{
-            methodo: 'POST',
+        let respuesta = await fetch(base_url + 'controller/Producto.php?tipo=ver', {
+            method: 'POST',
             mode: 'cors',
             cache: 'no-cache',
             body: formData
         });
         json = await respuesta.json();
-        if (json.status){
-
-            // aqui aumentar lo que esta en formulario de editar_producto......
-
+        if (json.status) {
             document.querySelector('#id_producto').value = json.contenido.id;
             document.querySelector('#codigo').value = json.contenido.codigo;
             document.querySelector('#nombre').value = json.contenido.nombre;
             document.querySelector('#detalle').value = json.contenido.detalle;
             document.querySelector('#precio').value = json.contenido.precio;
-            document.querySelector('#idcategoria').value = json.contenido.idcategoria;
-            document.querySelector('#proveedor').value = json.contenido.proveedor;
+            document.querySelector('#categoria').value = json.contenido.id_categoria;
+            document.querySelector('#proveedor').value = json.contenido.id_proveedor;
             document.querySelector('#img').value = json.contenido.imagen;
-
-        }else{
-            window.location = base_url+"productos";
+        } else {
+            window.location = base_url + "productos";
         }
 
         console.log(json);
 
-
     } catch (error) {
-        console.log("oops ocurrio un error"+error);
+        console.log("oops ocurrio un error " + error);
     }
-    
 }
+
 async function actualizarProducto() {
     const datos = new FormData(frmActualizar);
     try {
@@ -172,7 +160,6 @@ async function actualizarProducto() {
 
     }
 }
-// dividido en dos partes que si esta seguro de eliminar 
 async function eliminar_producto(id) {
     swal({
         title:"¿Realmente desea elminar producto?",
@@ -187,7 +174,7 @@ async function eliminar_producto(id) {
     
 }
 async function fnt_eliminar(id) {
-   //  alert("producto eliminado: id="+ id); 
+   /*  alert("producto eliminado: id="+ id); */
    const formdata = new FormData();
    formdata.append('id_producto', id);
    try {
@@ -199,7 +186,7 @@ async function fnt_eliminar(id) {
     });
     json= await respuesta.json();
     if (json.status) {
-        // alert("eliminado correctamente"); 
+        /* alert("eliminado correctamente"); */
         swal("Eliminar", "eliminado correctamente","success");
         document.querySelector('#fila'+id).remove();
     }else{

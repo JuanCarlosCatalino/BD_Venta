@@ -1,48 +1,63 @@
 <?php
 require_once "../librerias/conexion.php";
-
-class PersonaModel {
-
+class personaModel
+{  
     private $conexion;
-    function __construct() 
+    function __construct()
     {
-        $this->conexion = new Conexion();  
+        $this->conexion = new Conexion();
         $this->conexion = $this->conexion->connect();
     }
-
-    // Función para registrar una persona
-    public function registrarPersona($nro_identidad, $razon_social, $telefono, $correo, 
-                                      $departamento, $provincia, $distrito, $direccion, 
-                                      $cod_postal, $rol, $password, $estado, $fecha_reg) {
-        $sql = $this->conexion->query("CALL insertpersona('{$nro_identidad}', '{$razon_social}','{$telefono}', '{$correo}', '{$departamento}', '{$provincia}', 
-        '{$distrito}', '{$direccion}', '{$cod_postal}', '{$rol}','{$password}', '{$estado}', '{$fecha_reg}')");
+    public function registrarPersona($nro_identidad, $razon_social, $telefono, $correo, $departamento, $provincia, $distrito, $cod_postal, $direccion, $rol, $password, $fecha_reg)
+    {   
+        $sql = $this->conexion->query("CALL insertpersona('{$nro_identidad}','{$razon_social}', '{$telefono}','{$correo}','{$departamento}','{$provincia}','{$distrito}','{$cod_postal}','{$direccion}','{$rol}','{$password}','{$fecha_reg}')");
         $sql = $sql->fetch_object();
         return $sql;
     }
-
-    public function buscarPersonaPordni($nro_identidad){
-        $sql = $this->conexion->query("SELECT * FROM persona WHERE nro_identidad='{$nro_identidad}'");
+    public function buscarpersonapordni($nro_identidad){
+        $sql = $this->conexion->query("SELECT*FROM persona WHERE nro_identidad='{$nro_identidad}'");
         $sql = $sql->fetch_object();
         return $sql;
     }
-
-    public function obtener_proveedores(){
+    public function obtener_proveedor()
+    {
         $arrRespuesta = array();
-        $respuesta = $this->conexion->query("SELECT*FROM persona where rol='proveedor'");
+        // Consulta  tabla persona para obtener los proveedores
+        $respuesta = $this->conexion->query("SELECT * FROM persona WHERE rol = 'proveedor'");
+        
         while ($objeto = $respuesta->fetch_object()) {
-            array_push($arrRespuesta,$objeto);
+            array_push($arrRespuesta, $objeto);
+        }
+        
+        return $arrRespuesta;
+    }
+  
+    public function obtener_personas()
+    {
+        $arrRespuesta = array();
+        $respuesta = $this->conexion->query(" SELECT * FROM persona");
+        while ($objeto = $respuesta->fetch_object()) {
+            array_push($arrRespuesta, $objeto);
+            
         }
         return $arrRespuesta;
     }
-    public function obtener_persona(){
-        $arrRespuesta = array();
-        $respuesta = $this->conexion->query("SELECT*FROM persona");
-        while ($objeto = $respuesta->fetch_object()) {
-            array_push($arrRespuesta,$objeto);
-        }
-        return $arrRespuesta;
+    public function verPersona($id){
+        $sql = $this->conexion->query("SELECT * FROM persona WHERE id ='$id'");
+        $sql =$sql->fetch_object(); 
+        return $sql;
+        
     }
-    
+    public function actualizarPersona($id, $nombre, $detalle, $precio, $categoria, $fecha_v, $proveedor){
+        $sql = $this->conexion->query("CALL actualizarproducto('{$id}','{$nombre}','{$detalle}','{$precio}','{$categoria}','{$proveedor}')");
+        $sql = $sql->fetch_object();
+        return $sql;
+    }
+    public function eliminarPersona($id){
+        $sql = $this->conexion->query("CALL eliminarpersona('{$id}')");
+        $sql =$sql->fetch_object(); 
+        return $sql;
+        
+    }
 }
-?>
 
