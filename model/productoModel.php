@@ -6,7 +6,8 @@ class ProductoModel{
     function __construct()
     {
       $this->conexion= new Conexion ();  
-      $this->conexion = $this->conexion ->connect();
+      $this->conexion = 
+      $this->conexion ->connect();
     }
 
     public function obtener_productos(){
@@ -25,8 +26,6 @@ class ProductoModel{
     '{$imagen}','{$idproveedor}','{$tipoArchivo}')");
     $sql = $sql->fetch_object();
     return $sql;
-    print_r($codigo);
-
   }
     public function actualizar_imagen($id,$imagen){
       $sql = $this->conexion->query("UPDATE producto SET imagen='{$imagen}' where id='{´$id}'");
@@ -34,24 +33,19 @@ class ProductoModel{
 
 
     // es de esditar producto
-    public function verProducto($id){
+    public function ver_Producto($id){
       $sql = $this->conexion->query("SELECT * FROM producto WHERE id='$id'");
       $sql = $sql->fetch_object();
       return $sql;
 
     }
 // aqui falta arreglar en los procedimientos y borrar
-public function actualizarProducto($id, $nombre, $detalle, $precio, $categoria, $proveedor){
-  $sql = $this->conexion->query("CALL actualizarproducto('{$id}','{$nombre}','{$detalle}','{$precio}','{$categoria}','{$proveedor}')");
+public function actualizarProducto($id, $nombre, $detalle, $precio, $categoria, $fecha_v, $proveedor){
+  $sql = $this->conexion->query("CALL actualizarproducto('{$id}','{$nombre}','{$detalle}','{$precio}','{$categoria}','{$fecha_v}','{$proveedor}')");
   $sql = $sql->fetch_object();
   return $sql;
-    }
-
-    public function eliminarProducto($id){
-      $sql = $this->conexion->query("CALL eliminarproducto('{$id}')");
-      $sql =$sql->fetch_object(); 
-      return $sql;
-  }
+}
+}
 
   }
 
