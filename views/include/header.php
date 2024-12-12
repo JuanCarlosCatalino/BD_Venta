@@ -22,6 +22,9 @@
     <div class="oferta">
     <marquee  direction="right">10% solo esta semana ! APROVECHA AHORA¡ </marquee></div>
     <div class="contac">
+      panel de control
+    </div>
+    <div class="contac">
       contactos
     </div>
     <div class="contac">
