@@ -48,6 +48,17 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-header bg-success text-white">
+                        Compras
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Total de compras: $4,200</p>
+                        <a href="<?php echo BASE_URL;?>nueva-compra" class="btn btn-success">Registra compra</a>
+                    </div>
+                </div>
+            </div>
 
         </div>
         
