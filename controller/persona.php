@@ -4,11 +4,9 @@ $tipo = $_REQUEST ['tipo'];
 # instacncion ña clase model producto
 $objPersona = new personaModel();
 
-if ($tipo=="registrar") {
-    //print_r($_POST);
-    //echo $_FILES['imagen']['name'];
-    
-     if($_POST);
+if ($tipo=="registrar"){
+
+    if($_POST){
     $nro_identidad= $_POST['nro_identidad'];
     $razon_social= $_POST['razon_social'];
     $telefono= $_POST['telefono'];
@@ -29,13 +27,12 @@ if ($tipo=="registrar") {
         $arrPersona= $objPersona->registrarPersona($nro_identidad, $razon_social, $telefono,$correo, $departamento, $provincia, $distrito, $cod_postal, $direccion, $rol, $secure_password, $fecha_reg);
         if ($arrPersona->id > 0) {
             $arr_Respuesta = array('status' => true, 'mensaje' =>'registro exitoso');
-            //car}gar archivos
-        
         } else {
             $arr_Respuesta = array('status' => false, 'mensaje'=>'error al SREGISTRAR persona');
         }
         echo json_encode($arr_Respuesta);
-    } 
+    }
+}
 }
 
 
