@@ -1,4 +1,5 @@
-async function registrar_persona(){
+async function registrar_persona(){ 
+    
     let nro_identidad = document.getElementById('nro_identidad').value; 
     let razon_social = document.querySelector('#razon_social').value;
     let telefono = document.querySelector('#telefono').value;

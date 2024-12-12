@@ -20,14 +20,14 @@ if ($tipo=="registrar") {
     $direccion= $_POST['direccion'];
     $rol= $_POST['rol'];
     $fecha_reg= $_POST['fecha_reg'];
-    
+
     $secure_password = password_hash($nro_identidad,PASSWORD_DEFAULT);
     
     if ($nro_identidad=="" || $razon_social=="" || $telefono=="" || $correo==""|| $departamento==""|| $provincia=="" || $distrito=="" || $cod_postal==""|| $direccion==""|| $rol==""|| $secure_password==""|| $fecha_reg=="") {
         $arr_Respuesta = array('status'=> false, 'mensaje'=>'error campos vacios');
     }else {
         $arrPersona= $objPersona->registrarPersona($nro_identidad, $razon_social, $telefono,$correo, $departamento, $provincia, $distrito, $cod_postal, $direccion, $rol, $secure_password, $fecha_reg);
-        if ($arrPersona-> id > 0) {
+        if ($arrPersona->id > 0) {
             $arr_Respuesta = array('status' => true, 'mensaje' =>'registro exitoso');
             //car}gar archivos
         
@@ -37,6 +37,8 @@ if ($tipo=="registrar") {
         echo json_encode($arr_Respuesta);
     } 
 }
+
+
 if ($tipo=="listarproveedor") {
     $arr_Respuesta = array('status'=> false, 'contenido'=>'');
     $arr_Proveedor = $objPersona-> obtener_proveedor();
