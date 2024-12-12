@@ -54,7 +54,7 @@
   </div>
   <div class="Categoría">
     nuestras Categorías
-  </div>
+  </div>  
   <div class="container-fluid" style="margin-top: 50px;">
     <div class="row " style="margin-left: 100px ;  margin-right: 100px; margin-top: 0px;">
       <!-- Categoría 1 -->
@@ -165,11 +165,11 @@
         <div class="card h-100 border-0">
           <img src="img/2bb8f1c3f5a03e3788dfba32fd56c8ae.png" class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title">Polo personalizado</h5>
-            <p class="card-text">Polo personalizado de parejas, color blanco con estampa libre.</p>
+            <h5 class="card-title">Taza personalizado</h5>
+            <p class="card-text">Taza personalizado de , color blanco con estampa libre.</p>
           </div>
           <div class="card-footer" style="display: flex; justify-content: end;">
-            <a href="carrito.php" class="botoncompra">S/ 19.99</a>
+            <a href="carrito.php" class="botoncompra">S/ 29.99</a>
           </div>
         </div>
       </a>
@@ -179,8 +179,8 @@
         <div class="card h-100 border-0">
           <img src="img/2bb8f1c3f5a03e3788dfba32fd56c8ae.png" class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title">Polo personalizado</h5>
-            <p class="card-text">Polo personalizado de parejas, color blanco con estampa libre.</p>
+            <h5 class="card-title">Gorra personalizado</h5>
+            <p class="card-text">Gorra personalizado de parejas, color negro con estampa libre.</p>
           </div>
           <div class="card-footer" style="display: flex; justify-content: end;">
             <a href="carrito.php" class="botoncompra">S/ 19.99</a>
