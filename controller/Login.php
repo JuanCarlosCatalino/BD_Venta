@@ -6,6 +6,7 @@ if ($tipo=="iniciar_sesion") {
     //print_r($_POST);
     $usuario = trim($_POST['usuario']);
     $password = trim($_POST['password']);
+
     $arrResponse = array('status'=> false,'msg'=>'');
 
     $arrPersona = $objPersona->buscarpersonapordni($usuario);
@@ -26,6 +27,7 @@ if ($tipo=="iniciar_sesion") {
     }
     echo json_encode($arrResponse);
 }
+
 if ($tipo=="cerrar_sesion") {
     session_start();
     session_unset();

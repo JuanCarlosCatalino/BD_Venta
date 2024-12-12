@@ -27,6 +27,7 @@ async function iniciar_sesion() {
         console.log("Oops, ocurrio un error" + e);
     }
 }
+
 if (document.querySelector('#form_iniciar_sesion')) {
    let form_iniciar_sesion = document.querySelector('#form_iniciar_sesion');
    form_iniciar_sesion.onsubmit = function (e){
@@ -34,6 +35,8 @@ if (document.querySelector('#form_iniciar_sesion')) {
     iniciar_sesion();
    }
 }
+
+
 async function cerrar_sesion() {
     try {
         let respuesta = await fetch(base_url+'controller/Login.php?tipo=cerrar_sesion',{

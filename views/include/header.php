@@ -21,6 +21,12 @@
   <div class="cabecera">
     <div class="oferta">
     <marquee  direction="right">10% solo esta semana ! APROVECHA AHORA¡ </marquee></div>
+    <div class="contac" onclick="cerrar_sesion()">
+      cerrar sesion
+    </div>
+    <a href="<?php echo BASE_URL;?>panel-control"><div class="text-primary">
+      Panelcontrol
+    </div></a>
     <div class="contac">
       contactos
     </div>

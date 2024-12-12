@@ -61,12 +61,13 @@ async function listar_persona(params) {
                 <td>${item.provincia}</td>
                 <td>${item.distrito}</td>
                 <td>${item.cod_postal}</td>
+                <td>${item.direccion}</td>
                 <td>${item.rol}</td>
-                <td>${item.password}</td>
+                <td>${item.estado}</td>
                 <td>${item.fecha_reg}</td>
                 <td>${item.options}</td>
                 `;
-                document.querySelector('#tbl_persona').appendChild(nueva_fila);
+                document.querySelector('#body_personas').appendChild(nueva_fila);
             }); 
         } 
         console.log(respuesta);
@@ -74,9 +75,11 @@ async function listar_persona(params) {
         console.log("error "+ e);
     }
 }
-if (document.querySelector('#tbl_persona')){
+if (document.querySelector('#tbl_personas')){
     listar_persona();
 }
+
+
 async function ver_persona(id) {
     const formData = new FormData();
     formData.append('id_persona',id);

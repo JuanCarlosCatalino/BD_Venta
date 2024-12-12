@@ -39,7 +39,6 @@
       <a href=" <?php echo BASE_URL ?>carrito"> carrito
         <i class="fas fa-shopping-cart fa-lg"></i>
       </a>
-
     </div>
     </div>
   </nav>

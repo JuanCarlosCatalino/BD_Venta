@@ -9,7 +9,7 @@
                     <div class="card-body">
                         <p class="card-text">Total de usuarios registrados: 150</p>
                         <a href="<?php echo BASE_URL;?>nueva-persona" class="btn btn-primary">Registrar usuarios</a>
-                        <a href="" class="btn btn-primary">ver usuarios</a>
+                        <a href="<?php echo BASE_URL;?>personas" class="btn btn-primary">ver usuarios</a>
                     </div>
                 </div>
             </div>
@@ -48,5 +48,8 @@
                     </div>
                 </div>
             </div>
+
         </div>
+        
     </div>
+    <a class="btn btn-primary d-flex justify-content-center" href="<?php echo BASE_URL;?>menu"> Volver al menu</a>
