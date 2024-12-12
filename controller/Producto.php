@@ -103,30 +103,28 @@ if ($tipo=="actualizar") {
     $categoria = $_POST['idcategoria'];
     $imagen = 'imagen';
     $proveedor = $_POST['idproveedor'];
+
     if ($nombre == "" || $detalle == "" || $precio == "" || $categoria == "" || $proveedor == "") {
         //repuesta
         $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, campos vacíos');
     } else {
-        $arrProducto = $objProducto->actualizarProducto($id_producto, $codigo, $nombre, $detalle,$precio, $categoria, $imagen, $proveedor,$tipo_archivo);
+        $archivo = $_FILES['imagen']['tmp_name'];
+        $destino = '../assets/img_productos/';
+        $tipoArchivo = strtolower(pathinfo($_FILES["imagen"]["name"], PATHINFO_EXTENSION));
+        $arrProducto = $objProducto->actualizarProducto($id_producto, $codigo, $nombre, $detalle,$precio, $categoria, $imagen, $proveedor,$tipoArchivo);
         if ($arrProducto->p_id > 0) {
             $arr_Respuesta = array('status' => true, 'mensaje' => 'Actualizado Correctamente');
 
-            if ($_FILES['imagen']['tmp_name'] != "") {
-                unlink('../assets/img_productos/' . $img);
-
-                //cargar archivos
-                $archivo = $_FILES['imagen']['tmp_name'];
-                $destino = '../assets/img_productos/';
-                $tipoArchivo = strtolower(pathinfo($_FILES["imagen"]["name"], PATHINFO_EXTENSION));
-                if (move_uploaded_file($archivo, $destino . '' . $id_producto.'.'.$tipoArchivo)) {
-                }
+            $nombre = $arrProducto->p_id. '.' .$tipoArchivo;
+            if (move_uploaded_file($archivo, $destino . '' . $nombre)) {
+            } else {
+                $arr_Respuesta = array('status' => true, 'mensaje' => 'Registro Exitoso, error al subir imagen');
             }
         } else {
             $arr_Respuesta = array('status' => false, 'mensaje' => 'Error al actualizar producto');
         }
     }
     echo json_encode($arr_Respuesta);
-    print_r($_POST['']);
 }
 
 //--------------------------------------------------------------------------------
