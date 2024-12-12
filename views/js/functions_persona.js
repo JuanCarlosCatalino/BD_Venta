@@ -1,5 +1,5 @@
 async function registrar_persona(){ 
-    
+
     let nro_identidad = document.getElementById('nro_identidad').value; 
     let razon_social = document.querySelector('#razon_social').value;
     let telefono = document.querySelector('#telefono').value;
@@ -12,7 +12,6 @@ async function registrar_persona(){
     let rol = document.querySelector('#rol').value;
     let fecha_reg = document.querySelector('#fecha_reg').value;
   
-    
     if (nro_identidad=="" || razon_social=="" || telefono=="" || correo=="" || departamento=="" || provincia=="" || distrito=="" || cod_postal=="" ||direccion=="" || rol=="" ||  fecha_reg=="") { // = para asignar valor == para preguntar que valor tiene
         alert("error, campos vacios");
         return;
@@ -32,7 +31,7 @@ try {
     }else{
         swal("Registro", json.mensaje,"error");
     }
-
+    console.log(json);
 } catch (e) {
     console.log("Oops, ocurrio un error" + e);
 }

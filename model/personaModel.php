@@ -3,17 +3,17 @@ require_once "../librerias/conexion.php";
 class personaModel
 {  
     private $conexion;
-    function __construct()
-    {
+    function __construct(){
         $this->conexion = new Conexion();
         $this->conexion = $this->conexion->connect();
     }
-    public function registrarPersona($nro_identidad, $razon_social, $telefono, $correo, $departamento, $provincia, $distrito, $cod_postal, $direccion, $rol, $password, $fecha_reg)
-    {   
+
+    public function registrarPersona($nro_identidad, $razon_social, $telefono, $correo, $departamento, $provincia, $distrito, $cod_postal, $direccion, $rol, $password, $fecha_reg){   
         $sqla = $this->conexion->query("CALL insertpersona('{$nro_identidad}','{$razon_social}', '{$telefono}','{$correo}','{$departamento}','{$provincia}','{$distrito}','{$cod_postal}','{$direccion}','{$rol}','{$password}','{$fecha_reg}')");
         $sqlll = $sqla->fetch_object();
         return $sqlll;
     }
+
     public function buscarpersonapordni($nro_identidad){
         $sql = $this->conexion->query("SELECT*FROM persona WHERE nro_identidad='{$nro_identidad}'");
         $sql = $sql->fetch_object();

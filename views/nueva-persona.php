@@ -1,5 +1,5 @@
 <div class="container form-nproduct ">
-<form  id="formPersona" >
+<form  id="formPersona" action="">
     <div>
         <label for=""> numero de indentidad: </label>
             <input type="number"  class="form-control" required id="nro_identidad" name="nro_identidad" >
