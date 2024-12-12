@@ -28,9 +28,6 @@
       Panelcontrol
     </div></a>
     <div class="contac">
-      panel de control
-    </div>
-    <div class="contac">
       contactos
     </div>
     <div class="contac">
