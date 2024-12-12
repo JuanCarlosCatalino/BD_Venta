@@ -101,12 +101,13 @@ if ($tipo=="actualizar") {
     $detalle = $_POST['detalle'];
     $precio = $_POST['precio'];
     $categoria = $_POST['idcategoria'];
+    $imagen = 'imagen';
     $proveedor = $_POST['idproveedor'];
     if ($nombre == "" || $detalle == "" || $precio == "" || $categoria == "" || $proveedor == "") {
         //repuesta
         $arr_Respuesta = array('status' => false, 'mensaje' => 'Error, campos vacíos');
     } else {
-        $arrProducto = $objProducto->actualizarProducto($id_producto, $codigo, $nombre, $detalle,$precio, $stock, $idcategoria, $imagen, $proveedor );
+        $arrProducto = $objProducto->actualizarProducto($id_producto, $codigo, $nombre, $detalle,$precio, $categoria, $imagen, $proveedor,$tipo_archivo);
         if ($arrProducto->p_id > 0) {
             $arr_Respuesta = array('status' => true, 'mensaje' => 'Actualizado Correctamente');
 
