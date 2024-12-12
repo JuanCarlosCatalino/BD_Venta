@@ -10,9 +10,9 @@ class personaModel
     }
     public function registrarPersona($nro_identidad, $razon_social, $telefono, $correo, $departamento, $provincia, $distrito, $cod_postal, $direccion, $rol, $password, $fecha_reg)
     {   
-        $sql = $this->conexion->query("CALL insertpersona('{$nro_identidad}','{$razon_social}', '{$telefono}','{$correo}','{$departamento}','{$provincia}','{$distrito}','{$cod_postal}','{$direccion}','{$rol}','{$password}','{$fecha_reg}')");
-        $sql = $sql->fetch_object();
-        return $sql;
+        $sqla = $this->conexion->query("CALL insertpersona('{$nro_identidad}','{$razon_social}', '{$telefono}','{$correo}','{$departamento}','{$provincia}','{$distrito}','{$cod_postal}','{$direccion}','{$rol}','{$password}','{$fecha_reg}')");
+        $sqlll = $sqla->fetch_object();
+        return $sqlll;
     }
     public function buscarpersonapordni($nro_identidad){
         $sql = $this->conexion->query("SELECT*FROM persona WHERE nro_identidad='{$nro_identidad}'");

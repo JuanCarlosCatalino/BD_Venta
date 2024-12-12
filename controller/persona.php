@@ -1,6 +1,6 @@
 <?php
 require_once('../model/personaModel.php');
-$tipo = $_REQUEST ['tipo'];
+$tipo = $_REQUEST['tipo'];
 # instacncion ña clase model producto
 $objPersona = new personaModel();
 

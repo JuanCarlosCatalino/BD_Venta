@@ -44,7 +44,7 @@ if ($tipo=="registrar") {
     //print_r($_POST);
     //echo $_FILES['imagen']['name'];
     
-     if($_POST);
+     if($_POST){
     $codigo= $_POST['codigo'];
     $nombre= $_POST['nombre'];
     $detalle= $_POST['detalle'];
@@ -75,7 +75,7 @@ if ($tipo=="registrar") {
         }
         echo json_encode($arr_Respuesta);
     } 
-
+}
 }
 
 //--------------------------------------------------------------------------------
