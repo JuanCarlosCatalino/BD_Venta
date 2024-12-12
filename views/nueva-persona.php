@@ -1,5 +1,5 @@
 <div class="container form-nproduct ">
-<form action="" id="formPersona">
+<form  id="formPersona" method="POST">
     <div>
         <label for=""> numero de indentidad: </label>
             <input type="number"  class="form-control" required id="nro_identidad" name="nro_identidad" >
@@ -37,8 +37,12 @@
             <input type="text" class="form-control" required id="direccion" name="direccion" >
     </div>
     <div>
-        <label for=""> rol:</label>
-            <input type="text" class="form-control" required id="rol" name="rol" >
+        <label for="rol"> rol:</label>
+            <select name="rol" id="rol">
+                <option value="administrador">administrador</option>
+                <option value="proveedor">proveedor</option>
+                <option value="trabajador">trabajador</option>
+            </select>
     </div>
    
     <div>

@@ -36,5 +36,17 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-header bg-warning text-white">
+                        Categorias
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Total de productos: 75</p>
+                        <a href="<?php echo BASE_URL;?>nueva-categoria" class="btn btn-primary">Registrar Categoria</a>
+                        <a href="<?php echo BASE_URL;?>categorias" class="btn btn-primary">ver categorias</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>

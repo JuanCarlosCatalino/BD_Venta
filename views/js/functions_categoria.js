@@ -27,27 +27,25 @@ try {
     console.log("Oops, ocurrio un error" + e);
 }
 }
-async function listar_categoria(params) {
+async function listar_categoria() {
     try {
 
-        let respuesta = await fetch(base_url+'controller/Producto.php?tipo=listar');
+        let respuesta = await fetch(base_url+'controller/Categoria.php?tipo=listar');
         json = await respuesta.json();
         if (json.status) {
             let datos = json.contenido;
             let cont = 0;
-
-
             datos.forEach(item => {
                 let  nueva_fila = document.createElement("tr"); 
                 nueva_fila.id = "fila" +item.id; // el item.id es  de la base de datos
-                 cont++; // o +=1
+                cont++; // o +=1
                 nueva_fila.innerHTML =`
-                <th>${cont}</th>
+                <td>${cont}</td>
                 <td>${item.nombre}</td>
                 <td>${item.detalle}</td>
-                 <td>${item.options}</td>
+                <td>${item.options}</td>
                 `;
-                document.querySelector('#tbl_categoria').appendChild(nueva_fila);
+                document.querySelector('#body_categorias').appendChild(nueva_fila);
             }); 
         } 
         console.log(respuesta);

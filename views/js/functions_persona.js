@@ -36,6 +36,7 @@ try {
     console.log("Oops, ocurrio un error" + e);
 }
 }
+
 async function listar_persona(params) {
     try {
 
